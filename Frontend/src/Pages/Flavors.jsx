@@ -1,7 +1,29 @@
 import React from "react";
 import Heading from "../Components/heading";
+import { useState, useEffect } from "react";
 
 const Flavors = () => {
+  const [type, settype] = useState([])
+  const [iceCreamFlavors, seticeCreamFlavors] = useState([])
+  const [dairyFreeFlavors, setdairyFreeFlavors] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/product")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        seticeCreamFlavors(data[0]["Ice Cream Flavors"])
+        setdairyFreeFlavors(data[1]["Dairy Free Flavors"])  
+        settype([
+          Object.keys(data[0])[1],
+          Object.keys(data[1])[1]
+      ]);
+        console.log(data[1]["Dairy Free Flavors"]);
+        
+        
+      });
+  }, []);
   return (
     <div>
       <div className="bg-[#541F03] h-80 flex justify-center items-center">
@@ -12,64 +34,75 @@ const Flavors = () => {
         />
       </div>
       <div className="">
-        <p className="text-[#541F03]  font-bold text-3xl p-10">
-          Flavors
-        </p>
+        <p className="text-[#541F03]  font-bold text-3xl p-10">Flavors</p>
         <div className="flex justify-between mx-10 text-[#541F03] text-left">
-          <div>
-            <h1 className="text-2xl font-bold">Ice Cream Flavors</h1>
-            <hr className="my-4" />
-            <div className="flex">
+          <div className="w-1/2">
+            <h1 className="text-2xl font-bold">{type[0]}</h1>
+            <hr className="my-4 border-[#541F03]" />
+
+            {iceCreamFlavors.map((val)=>
+
+              <div className="flex justify-between mb-10">
               <div className="flex">
-                <div>
+                <div className="">
                   <h2 className="font-bold mb-2 inline">
-                    Cheesecake & Berries
+                    {val.name}
                   </h2>
-                  <div className="decoration-dotted underline inline-block tracking-widest">
-                    <pre>               $9</pre>
+                  <div className="w-32 inline-block "> <hr className="border-[#541F03] border-dotted"/> </div>
+                  <div className="inline-block tracking-widest">
+                    <pre>{`$${val.price}`}</pre>
                   </div>
-                  <p>
-                    This is an item on your menu. Give your item a brief
-                    description.
+                  <p className="mt-2 w-5/6">
+                    {val.description}
                   </p>
                 </div>
               </div>
-              <div>
+              <div className="w-28">
                 <img
-                  src="https://static.wixstatic.com/media/84770f_8f30fd7921dd4554acc833c4c5b633e9~mv2.jpg/v1/fill/w_131,h_131,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/84770f_8f30fd7921dd4554acc833c4c5b633e9~mv2.jpg"
+                  src={val.img}
                   alt=""
                 />
               </div>
+              
             </div>
+            
+            
+            )}
+          
           </div>
-          <hr />
 
 
-          <div>
-            <h1 className="text-2xl font-bold">Dairy Free Flavors</h1>
-            <hr className="my-4" />
-            <div className="flex">
+          <div className="">
+            <h1 className="text-2xl font-bold">{type[1]}</h1>
+            <hr className="my-4 border-[#541F03]" />
+            
+            {dairyFreeFlavors.map((val,idx)=>
+              
+              <div className="flex justify-between mb-10">
               <div className="flex">
-                <div>
+                <div className="">
                   <h2 className="font-bold mb-2 inline">
-                    Cheesecake & Berries
+                    {val.name}
                   </h2>
-                  <div className="decoration-dotted underline inline-block tracking-widest">
-                    <pre>               $9</pre>
+                  <div className="w-32 inline-block "> <hr className="border-[#541F03] border-dotted"/> </div>
+                  <div className="inline-block tracking-widest">
+                    <pre>{`$${val.price}`}</pre>
                   </div>
-                  <p>
-                    This is an item on your menu. Give your item a brief
-                    description.
+                  <p className="mt-2 w-5/6">
+                    {val.description}
                   </p>
                 </div>
               </div>
-              <div>
-                <img
-                  src="https://static.wixstatic.com/media/84770f_8f30fd7921dd4554acc833c4c5b633e9~mv2.jpg/v1/fill/w_131,h_131,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/84770f_8f30fd7921dd4554acc833c4c5b633e9~mv2.jpg"
+              <div className=" w-32 h-32">
+                <img className=" h-32 w-32 object-contain"
+                  src={val.image}
                   alt=""
                 />
               </div>
+              
             </div>
+            )}
+
           </div>
         </div>
       </div>

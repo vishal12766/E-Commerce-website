@@ -1,0 +1,52 @@
+{
+  "Dairy Free Flavors": [
+    {
+      "name": "Mango Sorbet",
+      "price": 8,
+      "description": "Refreshing dairy-free mango sorbet made with ripe tropical mangoes.",
+      "image": "https://images.unsplash.com/photo-1570197788417-0e82375c9371"
+    },
+    {
+      "name": "Lemon Sorbet",
+      "price": 8,
+      "description": "Tangy lemon sorbet bursting with fresh citrus flavor.",
+      "image": "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f"
+    },
+    {
+      "name": "Raspberry Sorbet",
+      "price": 9,
+      "description": "Sweet and tart raspberry sorbet made with real berries.",
+      "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+    },
+    {
+      "name": "Pineapple Coconut",
+      "price": 9,
+      "description": "A tropical blend of juicy pineapple and creamy coconut, completely dairy-free.",
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd"
+    },
+    {
+      "name": "Watermelon Splash",
+      "price": 7,
+      "description": "Cool and refreshing watermelon sorbet perfect for hot summer days.",
+      "image": "https://images.unsplash.com/photo-1560807707-8cc77767d783"
+    },
+    {
+      "name": "Passion Fruit",
+      "price": 9,
+      "description": "Exotic passion fruit sorbet with a bright and tangy taste.",
+      "image": "https://images.unsplash.com/photo-1464306076886-da185f6a9d05"
+    },
+    {
+      "name": "Mixed Berry Sorbet",
+      "price": 9,
+      "description": "A refreshing mix of strawberries, blueberries, and raspberries.",
+      "image": "https://images.unsplash.com/photo-1488900128323-21503983a07e"
+    },
+    {
+      "name": "Peach Bliss",
+      "price": 8,
+      "description": "Smooth peach sorbet made with juicy ripe peaches.",
+      "image": "https://images.unsplash.com/photo-1471943311424-646960669fbc"
+    }
+  ]
+}
