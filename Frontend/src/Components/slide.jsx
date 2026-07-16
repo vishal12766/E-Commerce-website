@@ -27,7 +27,7 @@ const slide = (props) => {
           content="Explore Menu"
           bg="bg-transparent"
           color="text-[#541F03]"
-          work='/flavors'
+          work='/Gelato/flavors'
         />
         </div>
       </div>

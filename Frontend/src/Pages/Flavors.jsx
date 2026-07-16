@@ -1,29 +1,26 @@
 import React from "react";
 import Heading from "../Components/heading";
-import { useState, useEffect } from "react";
+import { useState, useEffect ,useContext} from "react";
+import  {ProductContext}  from "../Contexts/ProductProvider";
 
 const Flavors = () => {
+  const {Products} = useContext(ProductContext);
+
   const [type, settype] = useState([])
   const [iceCreamFlavors, seticeCreamFlavors] = useState([])
   const [dairyFreeFlavors, setdairyFreeFlavors] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/product")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        seticeCreamFlavors(data[0]["Ice Cream Flavors"])
-        setdairyFreeFlavors(data[1]["Dairy Free Flavors"])  
+      if(Products.length>0){
+        seticeCreamFlavors(Products[0]["Ice Cream Flavors"])
+        setdairyFreeFlavors(Products[1]["Dairy Free Flavors"])  
         settype([
-          Object.keys(data[0])[1],
-          Object.keys(data[1])[1]
-      ]);
-        console.log(data[1]["Dairy Free Flavors"]);
-        
-        
-      });
-  }, []);
+          Object.keys(Products[0])[1],
+          Object.keys(Products[1])[1]
+        ]);  
+      }
+         
+  }, [Products]);
   return (
     <div>
       <div className="bg-[#541F03] h-80 flex justify-center items-center">
@@ -40,9 +37,9 @@ const Flavors = () => {
             <h1 className="text-2xl font-bold">{type[0]}</h1>
             <hr className="my-4 border-[#541F03]" />
 
-            {iceCreamFlavors.map((val)=>
+            {iceCreamFlavors.map((val,idx)=>
 
-              <div className="flex justify-between mb-10">
+              <div key={idx} className="flex justify-between mb-10">
               <div className="flex">
                 <div className="">
                   <h2 className="font-bold mb-2 inline">
@@ -78,7 +75,7 @@ const Flavors = () => {
             
             {dairyFreeFlavors.map((val,idx)=>
               
-              <div className="flex justify-between mb-10">
+              <div key={idx} className="flex justify-between mb-10">
               <div className="flex">
                 <div className="">
                   <h2 className="font-bold mb-2 inline">

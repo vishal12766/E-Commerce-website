@@ -7,22 +7,36 @@ import Flavors from './Pages/Flavors'
 import About from './Pages/About'
 import Event from './Pages/Event'
 import Book from './Pages/Book'
+import Order from './Pages/Order'
+import ProductProvider from './Contexts/ProductProvider'
+import Login from './Pages/Login'
+import Signup from './Pages/Signup'
+import MainLayout from './MainLayout'
+
+
 
 
 const App = () => {
   return (
     <>
-      <BrowserRouter>
-        <Navbar/>
+      <ProductProvider>
+        
+        <BrowserRouter>
+        
           <Routes>
-            <Route path='/' element={<Homepage/>}/>
-            <Route path='/flavors' element={<Flavors/>}/>
-            <Route path='/about' element={<About/>}/>
-            <Route path='/event' element={<Event/>}/>
-            <Route path='/book' element={<Book/>}/>
+            <Route element={<MainLayout />}>
+              <Route path='/Gelato' element={<Homepage/>}/>
+              <Route path='/Gelato/flavors' element={<Flavors/>}/>
+              <Route path='/Gelato/about' element={<About/>}/>
+              <Route path='/Gelato/event' element={<Event/>}/>
+              <Route path='/Gelato/book' element={<Book/>}/>
+              <Route path='/Gelato/order' element={<Order/>}/>
+            </Route>
+              <Route path="/Gelato/login" element={<Login />} />
+              <Route path="/Gelato/signup" element={<Signup />} />
           </Routes>
-        <Footer/>
       </BrowserRouter>
+      </ProductProvider>
     </>
   )
 }

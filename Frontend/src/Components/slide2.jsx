@@ -10,7 +10,7 @@ const slide2 = () => {
                 <div className='flex-col justify-center  place-content-center place-items-center h-full'>
                     <Heading head1="Enjoy" head2="Dairy Free"/>
                     <div className='mt-10'></div>
-                    <Button content="Order Online" bg="bg-[#541F03]" color="text-[#fff99f]"/>
+                    <Button content="Order Online" bg="bg-[#541F03]" color="text-[#fff99f]" work='/Gelato/order'/>
                 </div>
             </div>
 
@@ -25,7 +25,7 @@ const slide2 = () => {
                 <div className='flex-col justify-center  place-content-center place-items-center h-full'>
                     <Heading head1="Our Story" head2="About Us"/>
                     <p className='w-[410px] h-[94px] mb-10 mt-10 text-center text-[18px] text-[#541F03] font-'>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. </p>
-                    <Button content="Read More" color='text-[#541F03]'  work='/about' />
+                    <Button content="Read More" color='text-[#541F03]'  work='/Gelato/about' />
                 </div>
             </div>
                
