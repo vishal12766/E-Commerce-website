@@ -76,7 +76,7 @@ const Order = () => {
       </div>
 
       <div className="sticky flex justify-end left-10 right-3 bottom-1 top-36 z-50">
-        <Link to="/Gelato/cart"><button  className="w-36 bg-[#541F03] text-white h-12 rounded-lg">Cart</button></Link>
+        <Link to="/cart"><button  className="w-36 bg-[#541F03] text-white h-12 rounded-lg">Cart</button></Link>
       </div>
 
       {/* Ice Cream */}

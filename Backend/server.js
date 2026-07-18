@@ -12,7 +12,7 @@ require("dotenv").config();
 
 const app = express()
 
-connectMongoDb(process.env.MONGO_URL)
+connectMongoDb(process.env.MONGO_URL || "mongodb://localhost:27017/IceCreamdatabase")
   .then(() => {
     console.log("Connected to:", mongoose.connection.name);
   })
@@ -33,6 +33,7 @@ app.get("/api/product", async (req, res) => {
   }
 
   res.json(flavor);
+  
 });
 
 app.get('/',(req,res)=>{
