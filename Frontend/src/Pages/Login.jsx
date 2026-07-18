@@ -24,6 +24,9 @@ const Login = () => {
       },
       body: JSON.stringify(form),
     });
+    if(!response){
+      console.log("error")
+    }
 
     const data = await response.json();
 

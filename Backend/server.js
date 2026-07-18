@@ -6,6 +6,7 @@ const Flavors = require('./Model/IceCreamFlavors')
 const User = require('./Model/User')
 const cors=require("cors")
 const userModel = require('./Model/User')
+const {setUser,getUser} = require('./services/auth')
 
 
 const app = express()
@@ -33,6 +34,8 @@ app.get("/api/product", async (req, res) => {
   res.json(flavor);
 });
 
+
+
 app.post('/signup', async(req,res)=>{
   try{
     const {name,email,password} =req.body
@@ -49,31 +52,35 @@ app.post('/signup', async(req,res)=>{
     catch(err){
       console.log(err)
       res.status(500).json({
-        message:"server error"
+        message:"server error",
+        error: err
       })
     }
   console.log(req.body);
 })
 
+
+
 app.post('/login', async(req,res)=>{
   const {email,password}=req.body;
   const user=await User.findOne({email});
-  if(!user){
-    return res.json({
-      msg:"User not found"
-    })
-  }
-
   if(user.password!==password){
     return res.json({
       msg:"Wrong password"
     })
   }
-
-  res.json({
-    msg:"Login successful",
-    user
-  })
+  if(user){
+    const token = setUser(user);
+    res.json({
+      msg:"Login successful",
+      token,
+      user
+    })
+  }else{
+    return res.json({
+      msg:"User not found"
+    })
+  }
 })
 
 

@@ -12,6 +12,8 @@ import ProductProvider from './Contexts/ProductProvider'
 import Login from './Pages/Login'
 import Signup from './Pages/Signup'
 import MainLayout from './MainLayout'
+import Cart from './Pages/Cart'
+import CartProvider from './Contexts/CartProvider'
 
 
 
@@ -20,9 +22,8 @@ const App = () => {
   return (
     <>
       <ProductProvider>
-        
+        <CartProvider>
         <BrowserRouter>
-        
           <Routes>
             <Route element={<MainLayout />}>
               <Route path='/Gelato' element={<Homepage/>}/>
@@ -31,11 +32,13 @@ const App = () => {
               <Route path='/Gelato/event' element={<Event/>}/>
               <Route path='/Gelato/book' element={<Book/>}/>
               <Route path='/Gelato/order' element={<Order/>}/>
+              <Route path='/Gelato/cart' element={<Cart/>}/>
             </Route>
               <Route path="/Gelato/login" element={<Login />} />
               <Route path="/Gelato/signup" element={<Signup />} />
           </Routes>
       </BrowserRouter>
+        </CartProvider>
       </ProductProvider>
     </>
   )

@@ -56,6 +56,7 @@ const Flavors = () => {
               </div>
               <div className="w-28">
                 <img
+                  className=""
                   src={val.img}
                   alt=""
                 />
@@ -92,7 +93,7 @@ const Flavors = () => {
               </div>
               <div className=" w-32 h-32">
                 <img className=" h-32 w-32 object-contain"
-                  src={val.image}
+                  src={val.img}
                   alt=""
                 />
               </div>

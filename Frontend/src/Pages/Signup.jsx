@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 
 
 const Signup = () => {
+  const navigate = useNavigate()
   const [form, setform] = useState({
     name:"",
     email:"",
@@ -30,7 +32,12 @@ const Signup = () => {
 
     const data=await response.json();
     console.log(data);
+    if(data.message=='user created'){
+      navigate('/Gelato')
+    }
   }
+  
+ 
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#fff99f] px-4 py-8">
