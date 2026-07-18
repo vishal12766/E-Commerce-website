@@ -36,7 +36,7 @@ app.get("/api/product", async (req, res) => {
 });
 
 app.get('/',(req,res)=>{
-  return res.render("hello")
+  return res.send("hello")
 })
 
 app.post('/signup', async(req,res)=>{
