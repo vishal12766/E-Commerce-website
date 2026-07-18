@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Components/navbar'
 import Homepage from './Pages/Homepage'
 import Footer from './Components/footer'
-import { Routes,BrowserRouter,Route } from 'react-router'
+import { Routes,BrowserRouter,Route, Navigate } from 'react-router'
 import Flavors from './Pages/Flavors'
 import About from './Pages/About'
 import Event from './Pages/Event'
@@ -18,6 +18,7 @@ import CartProvider from './Contexts/CartProvider'
 
 
 
+
 const App = () => {
   return (
     <>
@@ -25,6 +26,7 @@ const App = () => {
         <CartProvider>
         <BrowserRouter>
           <Routes>
+            <Route path='/' element={<Navigate to="/Gelato" replace />} />
             <Route element={<MainLayout />}>
               <Route path='/Gelato' element={<Homepage/>}/>
               <Route path='/Gelato/flavors' element={<Flavors/>}/>
