@@ -35,7 +35,9 @@ app.get("/api/product", async (req, res) => {
   res.json(flavor);
 });
 
-
+app.get('/',(req,res)=>{
+  return res.render("hello")
+})
 
 app.post('/signup', async(req,res)=>{
   try{
