@@ -1,0 +1,104 @@
+[{
+  "_id": {
+    "$oid": "6a52f27c2285891dad385110"
+  },
+  "Ice Cream Flavors": [
+    {
+      "name": "Cheesecake & Berries",
+      "price": 9,
+      "description": "Creamy cheesecake ice cream blended with fresh berries and topped with a sweet berry drizzle.",
+      "img": "https://static.wixstatic.com/media/84770f_8f30fd7921dd4554acc833c4c5b633e9~mv2.jpg/v1/fill/w_131,h_131,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/84770f_8f30fd7921dd4554acc833c4c5b633e9~mv2.jpg"
+    },
+    {
+      "name": "Chocolate Fudge",
+      "price": 8,
+      "description": "Rich chocolate ice cream swirled with smooth fudge and chocolate chunks.",
+      "img": "https://static.wixstatic.com/media/84770f_8b7b920301cb45f1b1c9935ddbe9839b~mv2.jpg/v1/fill/w_131,h_131,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/84770f_8b7b920301cb45f1b1c9935ddbe9839b~mv2.jpg"
+    },
+    {
+      "name": "Vanilla Bean",
+      "price": 7,
+      "description": "Classic vanilla bean ice cream made with real vanilla for a smooth, creamy taste.",
+      "img": "https://static.wixstatic.com/media/84770f_b2286944462f474a9964d498633934d4~mv2.jpg/v1/fill/w_411,h_411,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/84770f_b2286944462f474a9964d498633934d4~mv2.jpg"
+    },
+    {
+      "name": "Strawberry Delight",
+      "price": 8,
+      "description": "Fresh strawberry ice cream with juicy strawberry pieces in every scoop.",
+      "img": "https://static.wixstatic.com/media/84770f_d4805850e3144c0bacb84fb91264345d~mv2.jpg/v1/fill/w_131,h_131,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/84770f_d4805850e3144c0bacb84fb91264345d~mv2.jpg"
+    },
+    {
+      "name": "Cookies & Cream",
+      "price": 9,
+      "description": "Creamy vanilla ice cream loaded with crunchy chocolate cookie pieces.",
+      "img": "https://static.wixstatic.com/media/84770f_a612b01136eb46438e3276ff1b3c835c~mv2.jpg/v1/fill/w_131,h_131,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/84770f_a612b01136eb46438e3276ff1b3c835c~mv2.jpg"
+    },
+    {
+      "name": "Mango Sorbet",
+      "price": 8,
+      "description": "Refreshing dairy-free mango sorbet made with ripe tropical mangoes.",
+      "img": "https://static.wixstatic.com/media/84770f_c0a82e28631c4df1a0f58480e2888e5c~mv2.jpg/v1/fill/w_131,h_131,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/84770f_c0a82e28631c4df1a0f58480e2888e5c~mv2.jpg"
+    },
+    {
+      "name": "Mint Chocolate Chip",
+      "price": 9,
+      "description": "Cool mint ice cream mixed with rich chocolate chips for a refreshing treat.",
+      "img": "https://static.wixstatic.com/media/84770f_8b7b920301cb45f1b1c9935ddbe9839b~mv2.jpg/v1/fill/w_131,h_131,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/84770f_8b7b920301cb45f1b1c9935ddbe9839b~mv2.jpg"
+    },
+    {
+      "name": "Salted Caramel",
+      "price": 9,
+      "description": "Smooth caramel ice cream with a hint of sea salt and buttery caramel swirls.",
+      "img": "https://static.wixstatic.com/media/84770f_4952f56f789b4568b1418d5d00b94d3b~mv2.jpg/v1/fill/w_131,h_131,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/84770f_4952f56f789b4568b1418d5d00b94d3b~mv2.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6a5682262285891dad385121"
+  },
+  "Dairy Free Flavors": [
+    {
+      "name": "Mango Sorbet",
+      "price": 8,
+      "description": "Refreshing dairy-free mango sorbet made with ripe tropical mangoes.",
+      "img": "https://images.unsplash.com/photo-1570197788417-0e82375c9371"
+    },
+    {
+      "name": "Lemon Sorbet",
+      "price": 8,
+      "description": "Tangy lemon sorbet bursting with fresh citrus flavor.",
+      "img": "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f"
+    },
+    {
+      "name": "Raspberry Sorbet",
+      "price": 9,
+      "description": "Sweet and tart raspberry sorbet made with real berries.",
+      "img": "https://images.unsplash.com/photo-1594501504042-79b068f8b471?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cmFzcGVycnklMjBpY2UlMjBjcmVhbSUyMGZsYXZvcnxlbnwwfHwwfHx8MA%3D%3Dhttps://media.istockphoto.com/id/1814918101/photo/cup-of-raspberry-sorbet.webp?a=1&b=1&s=612x612&w=0&k=20&c=M3TkOQEOTpkIN9FxRB-AxfnqJTNxzVrwrCSKYTIXNlc=https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+    },
+    {
+      "name": "Pineapple Coconut",
+      "price": 9,
+      "description": "A tropical blend of juicy pineapple and creamy coconut, completely dairy-free.",
+      "img": "https://images.unsplash.com/photo-1602492383546-6f5a348c2a0b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cGluZWFwcGxlaWNlJTIwY3JlYW0lMjBmbGF2b3J8ZW58MHx8MHx8fDA%3Dhttps://images.unsplash.com/photo-1513558161293-cdaf765ed2fd"
+    },
+    {
+      "name": "Watermelon Splash",
+      "price": 7,
+      "description": "Cool and refreshing watermelon sorbet perfect for hot summer days.",
+      "img": "https://images.unsplash.com/photo-1736347169613-fdfd29426797?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxrV2p6b2dqUmhnRXx8ZW58MHx8fHx8https://unsplash.com/photos/an-ice-cream-sundae-is-sitting-on-a-table-juR5EIjKu5khttps://unsplash.com/photos/strawberry-ice-cream-in-black-cone-on-pink-pastel-background-summer-creative-concept-y53-PpXXTm4https://images.unsplash.com/photo-1560807707-8cc77767d783"
+    },
+    {
+      "name": "Passion Fruit",
+      "price": 9,
+      "description": "Exotic passion fruit sorbet with a bright and tangy taste.",
+      "img": "https://images.unsplash.com/photo-1677513643430-01b710bec296?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGFzc2lvbiUyMGZydWl0JTIwY3JlYW0lMjBmbGF2b3J8ZW58MHx8MHx8fDA%3Dhttps://images.unsplash.com/photo-1464306076886-da185f6a9d05"
+    },
+    {
+      "name": "Mixed Berry Sorbet",
+      "price": 9,
+      "description": "A refreshing mix of strawberries, blueberries, and raspberries.",
+      "img": "https://images.unsplash.com/photo-1488900128323-21503983a07e"
+    }
+  ]
+}]

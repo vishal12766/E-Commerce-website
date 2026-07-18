@@ -7,11 +7,12 @@ const User = require('./Model/User')
 const cors=require("cors")
 const userModel = require('./Model/User')
 const {setUser,getUser} = require('./services/auth')
+require("dotenv").config();
 
 
 const app = express()
 
-connectMongoDb("mongodb://127.0.0.1:27017/IceCreamdatabase")
+connectMongoDb(process.env.MONGO_URL)
   .then(() => {
     console.log("Connected to:", mongoose.connection.name);
   })
@@ -85,6 +86,8 @@ app.post('/login', async(req,res)=>{
 
 
 
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000')
-})
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
+});
