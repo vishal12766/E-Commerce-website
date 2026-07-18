@@ -90,7 +90,7 @@ const Login = () => {
         <p className="text-center mt-6 ">
           Don't have an account?{" "}
           <span className=" font-semibold cursor-pointer hover:underline">
-            <a href="/Gelato/signup">Sign Up</a>
+            <a href="/signup">Sign Up</a>
           </span>
         </p>
       </div>    

@@ -45,17 +45,17 @@ const navbar = () => {
         <div className='flex h-[90px] w-full bg-[#fff99f] text-[#541f03] text-[17.5px] justify-between place-items-center px-14'>
           <div>
             <ul className='flex justify-center place-items-center gap-4'>
-              <li><a href="/Gelato/flavors">Flavors</a></li>
-              <li><a href="/Gelato/about">About</a></li>
-              <li><a href="/Gelato/event">Book an Event</a></li>
+              <li><a href="/flavors">Flavors</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/event">Book an Event</a></li>
            </ul>
           </div>
           <div className=''>
-            <a href="/Gelato"><img src="https://static.wixstatic.com/media/84770f_71803fcfa2ce4fb59c425d59cf8c0e0a~mv2.png" alt="Gelato" className='h-[25px] w-[94px]' /></a>
+            <a href="/"><img src="https://static.wixstatic.com/media/84770f_71803fcfa2ce4fb59c425d59cf8c0e0a~mv2.png" alt="Gelato" className='h-[25px] w-[94px]' /></a>
           </div>
           
           <div>
-            <a href="/Gelato/login">
+            <a href="/login">
               <i className="fa-solid fa-circle-user"></i>
               <span className='m-3'>Log In</span>
             </a>

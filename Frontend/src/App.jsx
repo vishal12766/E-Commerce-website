@@ -26,18 +26,18 @@ const App = () => {
         <CartProvider>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Navigate to="/Gelato" replace />} />
+            
             <Route element={<MainLayout />}>
-              <Route path='/Gelato' element={<Homepage/>}/>
-              <Route path='/Gelato/flavors' element={<Flavors/>}/>
-              <Route path='/Gelato/about' element={<About/>}/>
-              <Route path='/Gelato/event' element={<Event/>}/>
-              <Route path='/Gelato/book' element={<Book/>}/>
-              <Route path='/Gelato/order' element={<Order/>}/>
-              <Route path='/Gelato/cart' element={<Cart/>}/>
+              <Route path='/' element={<Homepage/>}/>
+              <Route path='/flavors' element={<Flavors/>}/>
+              <Route path='/about' element={<About/>}/>
+              <Route path='/event' element={<Event/>}/>
+              <Route path='/book' element={<Book/>}/>
+              <Route path='/order' element={<Order/>}/>
+              <Route path='/cart' element={<Cart/>}/>
             </Route>
-              <Route path="/Gelato/login" element={<Login />} />
-              <Route path="/Gelato/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
           </Routes>
       </BrowserRouter>
         </CartProvider>
