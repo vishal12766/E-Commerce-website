@@ -7,7 +7,7 @@ export const ProductContext=createContext();
 const ProductProvider = ({children}) => {
     const [Products, setProducts] = useState([])
     useEffect(() => {
-      fetch(`${import.meta.env.VITE_API_URL}/api/product`)
+      fetch("http://localhost:3000/api/product" || `${import.meta.env.VITE_API_URL}/api/product`)
       .then((res)=> res.json())
     .then((data)=> {setProducts(data)
         

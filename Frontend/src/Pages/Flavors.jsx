@@ -22,86 +22,65 @@ const Flavors = () => {
          
   }, [Products]);
   return (
-    <div>
-      <div className="bg-[#541F03] h-80 flex justify-center items-center">
+    <div className="min-h-screen bg-[#fffdf3]">
+      <div className="bg-[#541F03] h-64 md:h-80 flex justify-center items-center">
         <Heading
           color="text-white"
           head1="Cool, Creamy, Perfect"
           head2="Our Menu"
         />
       </div>
-      <div className="">
-        <p className="text-[#541F03]  font-bold text-3xl p-10">Flavors</p>
-        <div className="flex justify-between mx-10 text-[#541F03] text-left">
-          <div className="w-1/2">
-            <h1 className="text-2xl font-bold">{type[0]}</h1>
-            <hr className="my-4 border-[#541F03]" />
-
-            {iceCreamFlavors.map((val,idx)=>
-
-              <div key={idx} className="flex justify-between mb-10">
-              <div className="flex">
-                <div className="">
-                  <h2 className="font-bold mb-2 inline">
-                    {val.name}
-                  </h2>
-                  <div className="w-32 inline-block "> <hr className="border-[#541F03] border-dotted"/> </div>
-                  <div className="inline-block tracking-widest">
-                    <pre>{`$${val.price}`}</pre>
-                  </div>
-                  <p className="mt-2 w-5/6">
-                    {val.description}
-                  </p>
+      <div className="max-w-4xl mx-auto px-4 md:px-10 py-12">
+        <h2 className="text-[#541F03] font-[recoleta] text-4xl md:text-5xl mb-12">Flavors</h2>
+        
+        <div className="mb-16">
+          <h3 className="text-[#541F03] font-[recoleta] text-2xl font-bold mb-8">{type[0]}</h3>
+          {iceCreamFlavors.map((val,idx)=> (
+            <div key={idx} className="flex items-start justify-between mb-10">
+              <div className="flex-1 mr-4">
+                <div className="flex items-baseline gap-2 mb-2">
+                  <h4 className="text-[#541F03] font-bold text-lg">{val.name}</h4>
+                  <div className="flex-1 border-t border-dotted border-[#541F03]"></div>
+                  <span className="text-[#541F03] font-medium">${val.price}</span>
                 </div>
+                <p className="text-[#541F03] opacity-80 max-w-md">
+                  {val.description}
+                </p>
               </div>
-              <div className="w-28">
+              <div className="w-12 h-12 md:w-16 md:h-16 flex-shrink-0">
                 <img
-                  className=""
+                  className="w-full h-full object-cover rounded-full"
                   src={val.img}
-                  alt=""
+                  alt={val.name}
                 />
               </div>
-              
             </div>
-            
-            
-            )}
-          
-          </div>
+          ))}
+        </div>
 
-
-          <div className="">
-            <h1 className="text-2xl font-bold">{type[1]}</h1>
-            <hr className="my-4 border-[#541F03]" />
-            
-            {dairyFreeFlavors.map((val,idx)=>
-              
-              <div key={idx} className="flex justify-between mb-10">
-              <div className="flex">
-                <div className="">
-                  <h2 className="font-bold mb-2 inline">
-                    {val.name}
-                  </h2>
-                  <div className="w-32 inline-block "> <hr className="border-[#541F03] border-dotted"/> </div>
-                  <div className="inline-block tracking-widest">
-                    <pre>{`$${val.price}`}</pre>
-                  </div>
-                  <p className="mt-2 w-5/6">
-                    {val.description}
-                  </p>
+        <div>
+          <h3 className="text-[#541F03] font-[recoleta] text-2xl font-bold mb-8">{type[1]}</h3>
+          {dairyFreeFlavors.map((val,idx)=> (
+            <div key={idx} className="flex items-start justify-between mb-10">
+              <div className="flex-1 mr-4">
+                <div className="flex items-baseline gap-2 mb-2">
+                  <h4 className="text-[#541F03] font-bold text-lg">{val.name}</h4>
+                  <div className="flex-1 border-t border-dotted border-[#541F03]"></div>
+                  <span className="text-[#541F03] font-medium">${val.price}</span>
                 </div>
+                <p className="text-[#541F03] opacity-80 max-w-md">
+                  {val.description}
+                </p>
               </div>
-              <div className=" w-32 h-32">
-                <img className=" h-32 w-32 object-contain"
+              <div className="w-12 h-12 md:w-16 md:h-16 flex-shrink-0">
+                <img
+                  className="w-full h-full object-cover rounded-full"
                   src={val.img}
-                  alt=""
+                  alt={val.name}
                 />
               </div>
-              
             </div>
-            )}
-
-          </div>
+          ))}
         </div>
       </div>
     </div>

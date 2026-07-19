@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 const Heading = ({ head1, head2, color = "text-[#541F03]" }) => {
   return (
     <div className="flex flex-col text-center">
-      <span className={`${color} font-[recoleta] text-[24px]`}>{head1}</span>
+      <span className={`${color} font-[recoleta] text-[18px] sm:text-[24px]`}>{head1}</span>
 
       <div className="overflow-hidden">
         <motion.h2
-          className={`${color} font-[recoleta] text-[76px] font-bold`}
+          className={`${color} font-[recoleta] text-[40px] sm:text-[56px] md:text-[76px] font-bold`}
           initial={{ y: "100%" }}
           whileInView={{ y: 0 }}
           viewport={{ once: true }}

@@ -1,11 +1,11 @@
 import React from 'react'
 
-const button = (props) => {
+const Button = (props) => {
   return (
-    <div className='flex'>
-        <a className={`rounded-md w-[190px] border border-[#541F03] h-[48px] ${props.bg} p-[11px]`} href={`${props.work}`}><span className={`text-[17px] ${props.color} flex justify-center`} >{props.content}</span></a>
+    <div className='flex justify-center'>
+        <a className={`rounded-md lg:w-[190px] sm:w-[250px] border border-[#541F03] h-[48px] ${props.bg} flex items-center justify-center`} href={`${props.work}`}><span className={`text-[17px] p-8 ${props.color}`} >{props.content}</span></a>
     </div>
   )
 }
 
-export default button
+export default Button

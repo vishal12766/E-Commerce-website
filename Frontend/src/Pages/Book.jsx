@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import Calendar from "react-calendar";
 
 
+
 const Book = () => {
   const [date, setDate] = useState(new Date());
 
   return (
-    <div className="text-[#541F03] px-28 pt-6">
+    <div className="text-[#541F03] px-4 md:px-28 pt-6">
       <a href="/event">
         <i class="fa-solid fa-angle-left"></i> Back
       </a>
@@ -18,19 +19,20 @@ const Book = () => {
           you
         </h2>
       </div>
-      <div className="mt-16 flex mb-4">
-        <div className="">
+      <div className="mt-10 md:mt-16 flex flex-col lg:flex-row gap-8 mb-4">
+        <div className="flex-1">
           <h2 className="font-bold text-2xl">Select a Date and Time</h2>
           <hr className="border-[#541F03]" />
-          <div className="   p-4 bg-white rounded-xl  text-center ">
+          <div className="p-4 bg-white rounded-xl text-center mt-4">
             <Calendar onChange={setDate} value={date} />
           </div>
         </div>
-        <div className="w-1/3">
-          <h2 className="font-bold text-gray-500 mb-2 text-right">Time zone</h2>
+        <div className="w-full lg:w-1/3">
+          <h2 className="font-bold text-gray-500 mb-2">Time zone</h2>
           <hr className="border-[#541F03]" />
-          <p className="mt-10 ml-10">Availability for {date.toDateString()}</p>
-        </div><div className="w-1/3 mx-10">
+          <p className="mt-10">Availability for {date.toDateString()}</p>
+        </div>
+        <div className="w-full lg:w-1/3">
           <h2 className="font-bold text-2xl">Service Details</h2>
           <hr className="border-[#541F03]" />
           <p className="my-6">ICE CREAM CART</p>
