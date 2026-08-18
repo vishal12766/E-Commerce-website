@@ -27,13 +27,14 @@ const Signup = () => {
       headers:{
         "Content-Type":"application/json"
       },
+      credentials: "include",
       body:JSON.stringify(form),
     })
 
     const data=await response.json();
     console.log(data);
-    if(data.message=='user created'){
-      navigate('/Gelato')
+    if(data.message=='Signup successful'){
+      navigate('/')
     }
   }
   
@@ -117,7 +118,6 @@ const Signup = () => {
 
           <button
             type="submit"
-            
             className="w-full bg-gray-300 text-black py-3 rounded-lg hover:bg-blue-600 hover:text-white transition"
           >
             Sign Up

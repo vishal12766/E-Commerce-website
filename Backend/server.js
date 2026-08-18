@@ -7,12 +7,14 @@ const User = require('./Model/User')
 const cors=require("cors")
 const userModel = require('./Model/User')
 const {setUser,getUser} = require('./services/auth')
+const cookieparser = require('cookie-parser')
 require("dotenv").config();
+
 
 
 const app = express()
 
-connectMongoDb(process.env.MONGO_URL || "mongodb://localhost:27017/IceCreamdatabase")
+connectMongoDb(process.env.MONGO_URL || "mongodb://localhost:27017/IceCreamdata")
   .then(() => {
     console.log("Connected to:", mongoose.connection.name);
   })
@@ -20,8 +22,13 @@ connectMongoDb(process.env.MONGO_URL || "mongodb://localhost:27017/IceCreamdatab
     console.log(err);
   });
 
-app.use(cors())
+app.use(cors(
+  {origin:"http://localhost:5173",
+  credentials: true,}
+))
 app.use(express.json())
+
+app.use(cookieparser())
 
 app.get("/api/product", async (req, res) => {
   const flavor = await Flavors.find();
@@ -48,10 +55,13 @@ app.post('/signup', async(req,res)=>{
       email,
       password
     })
-    res.status(201).json({
-      message:"user created",
-      user
+    const token = setUser(user)
+    res.cookie('uid',token)
+    console.log(token)
+    res.json({
+      message:'Signup successful'
     })
+    console.log("signup successful")
     }
     catch(err){
       console.log(err)
