@@ -1,10 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import Contact from "./contact";
+import Login from "../Pages/Login";
 
-const Navbar = () => {
+const Navbar = ({ user, setUser }) => {
   const [hide, setHide] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const lastScroll = useRef(0);
+
+  const handleLogout = async () => {
+    await fetch("http://localhost:3000/logout", {
+      method: "POST",
+      credentials: "include",
+    });
+
+    setUser(null);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,12 +48,17 @@ const Navbar = () => {
 
       {/* Navbar */}
       <div className="bg-[#fff99f] text-[#541f03] h-16 lg:h-[90px] flex items-center justify-between px-4 lg:px-14">
-
         {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center gap-6 text-[17px]">
-          <li><a href="/flavors">Flavors</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/event">Book an Event</a></li>
+          <li>
+            <a href="/flavors">Flavors</a>
+          </li>
+          <li>
+            <a href="/about">About</a>
+          </li>
+          <li>
+            <a href="/event">Book an Event</a>
+          </li>
         </ul>
 
         {/* Mobile Menu Button */}
@@ -66,7 +81,13 @@ const Navbar = () => {
         {/* Login */}
         <a href="/login" className="flex items-center">
           <i className="fa-solid fa-circle-user text-xl"></i>
-          <span className="hidden sm:inline ml-3">Log In</span>
+          <span className="hidden sm:inline ml-3">
+            {user ? (
+              <button onClick={handleLogout}>Logout</button>
+            ) : (
+              "Log In"
+            )}
+          </span>
         </a>
       </div>
 
@@ -74,9 +95,15 @@ const Navbar = () => {
       {menuOpen && (
         <div className="lg:hidden bg-[#fff99f] text-[#541f03]">
           <ul className="flex flex-col items-center py-4 gap-4">
-            <li><a href="/flavors">Flavors</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/event">Book an Event</a></li>
+            <li>
+              <a href="/flavors">Flavors</a>
+            </li>
+            <li>
+              <a href="/about">About</a>
+            </li>
+            <li>
+              <a href="/event">Book an Event</a>
+            </li>
           </ul>
         </div>
       )}

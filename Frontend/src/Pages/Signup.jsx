@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 
 
-const Signup = () => {
+const Signup = ({setUser}) => {
   const navigate = useNavigate()
   const [form, setform] = useState({
     name:"",
@@ -22,6 +22,10 @@ const Signup = () => {
 
   const handleSignup=async(e)=>{
     e.preventDefault();
+    if (form.password !== form.confirmPassword) {
+    alert("Passwords do not match");
+    return;
+  }
     const response=await fetch("http://localhost:3000/signup",{
       method: "POST",
       headers:{
@@ -33,10 +37,12 @@ const Signup = () => {
 
     const data=await response.json();
     console.log(data);
-    if(data.message=='Signup successful'){
+    if(data.msg=='Signup successful'){
       navigate('/')
+      setUser(data.user)
     }
   }
+
   
  
 

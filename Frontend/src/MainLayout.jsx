@@ -6,10 +6,10 @@ import { Outlet } from 'react-router'
 
 
 
-const MainLayout = () => {
+const MainLayout = ({user}) => {
   return (
     <div>
-        <Navbar/>
+        <Navbar user={user}/>
         <Outlet/>
         <Footer/>
     </div>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
-const Login = () => {
+const Login = ({setUser}) => {
+  const navigate = useNavigate()
   const [form, setform] = useState({
     email:"",
     password:"",
@@ -22,16 +24,20 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include", 
       body: JSON.stringify(form),
     });
     if(!response){
       console.log("error")
     }
-
-    const data = await response.json();
-
+    const data= await response.json()
     console.log(data);
-  };
+    
+  if(response){
+    setUser(data.user)
+    navigate("/")
+  }
+  }
 
   
 

@@ -8,7 +8,7 @@ import Slide3 from '../Components/slide3'
 import Slide4 from '../Components/slide4'
 import Footer from '../Components/footer'
 
-const Homepage = () => {
+const Homepage = ({user}) => {
   return (
     <div>
       <HeroImg/>
