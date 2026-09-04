@@ -1,8 +1,6 @@
 import React from "react";
-import Navbar from "./Components/navbar";
 import Homepage from "./Pages/Homepage";
-import Footer from "./Components/footer";
-import { Routes, BrowserRouter, Route, Navigate } from "react-router-dom";
+import { Routes, BrowserRouter, Route } from "react-router-dom";
 import Flavors from "./Pages/Flavors";
 import About from "./Pages/About";
 import Event from "./Pages/Event";
@@ -14,57 +12,58 @@ import Signup from "./Pages/Signup";
 import MainLayout from "./MainLayout";
 import Cart from "./Pages/Cart";
 import CartProvider from "./Contexts/CartProvider";
-import { useState, useEffect } from "react";
+import Shipping from "./Pages/Shipping";
+import OrderSuccess from "./Pages/OrderSuccess";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import { UserProvider } from "./Contexts/UserContext";
 
 const App = () => {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const checkUser = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/me", {
-          credentials: "include",
-        });
-
-        if (response.status === 401) {
-          setUser(null);
-          return;
-        }
-
-        const data = await response.json();
-
-        if (response.ok) {
-          setUser(data.user);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    checkUser();
-  }, []);
-
   return (
     <>
-      <ProductProvider>
-        <CartProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route element={<MainLayout user={user} setUser={setUser} />}>
-                <Route path="/" element={<Homepage />} />
-                <Route path="/flavors" element={<Flavors />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/event" element={<Event />} />
-                <Route path="/book" element={<Book />} />
-                <Route path="/order" element={<Order />} />
-                <Route path="/cart" element={<Cart />} />
-              </Route>
-              <Route path="/login" element={<Login setUser={setUser} />} />
-              <Route path="/signup" element={<Signup setUser={setUser} />} />
-            </Routes>
-          </BrowserRouter>
-        </CartProvider>
-      </ProductProvider>
+      <UserProvider>
+        <ProductProvider>
+          <CartProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route element={<MainLayout />}>
+                  <Route path="/" element={<Homepage />} />
+                  <Route path="/flavors" element={<Flavors />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/event" element={<Event />} />
+                  <Route path="/book" element={<Book />} />
+                  <Route path="/order-success" element={<OrderSuccess />} />
+                  <Route
+                    path="/order"
+                    element={
+                      <ProtectedRoute>
+                        <Order />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/cart"
+                    element={
+                      <ProtectedRoute>
+                        <Cart />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/shipping"
+                    element={
+                      <ProtectedRoute>
+                        <Shipping />
+                      </ProtectedRoute>
+                    }
+                  />
+                </Route>
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+              </Routes>
+            </BrowserRouter>
+          </CartProvider>
+        </ProductProvider>
+      </UserProvider>
     </>
   );
 };

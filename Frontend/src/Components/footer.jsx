@@ -51,10 +51,11 @@ const slide5 = () => {
             <div className='w-full lg:w-auto'>
               <Mailing/>
             </div>
-            <div className='mt-8 text-[#541F03]'>
+            <div className='mt-8 text-[#541F03] '>
             <i className="fa-regular fa-copyright"></i> Created by Vishal Singh in 2026
             </div>
         </div>
+        
         
     </div>
   )

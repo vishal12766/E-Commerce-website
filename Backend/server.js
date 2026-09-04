@@ -13,7 +13,7 @@ require("dotenv").config();
 const app = express();
 
 connectMongoDb(
-  "mongodb://localhost:27017/IceCreamdata" || process.env.MONGO_URL,
+  process.env.MONGO_URL || "mongodb://localhost:27017/IceCreamdata",
 )
   .then(() => {
     console.log("Connected to:", mongoose.connection.name);
@@ -22,7 +22,7 @@ connectMongoDb(
     console.log(err);
   });
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "https://e-commerce-website-mvlfdzn20-vishal-singhs-projects-37c1247a.vercel.app/", credentials: true }));
 app.use(express.json());
 
 app.use(cookieparser());

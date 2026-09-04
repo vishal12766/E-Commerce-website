@@ -4,11 +4,18 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router";
 import { useState } from "react";
+import shipping from "./Shipping";
 
 const Cart = () => {
-  const [DeliveryCharge, setDeliveryCharge] = useState(0);
-  const { cartItems, addToCart, totalCost ,increaseQuantity, decreaseQuantity, } = useContext(CartContext);
-  
+  const [DeliveryCharge, setDeliveryCharge] = useState(5);
+  const {
+    cartItems,
+    addToCart,
+    totalCost,
+    increaseQuantity,
+    decreaseQuantity,
+  } = useContext(CartContext);
+
   useEffect(() => {
     console.log("Cart:", cartItems);
   }, [cartItems]);
@@ -44,13 +51,23 @@ const Cart = () => {
 
                 {/* Quantity */}
                 <div className="flex items-center gap-3">
-                  <button onClick={()=>{decreaseQuantity(item.name)}} className="w-8 h-8 rounded-full bg-gray-200 text-lg">
+                  <button
+                    onClick={() => {
+                      decreaseQuantity(item.name);
+                    }}
+                    className="w-8 h-8 rounded-full bg-gray-200 text-lg"
+                  >
                     -
                   </button>
 
                   <span className="font-semibold">{item.quantity}</span>
 
-                  <button onClick={()=>{increaseQuantity(item.name)}} className="w-8 h-8 rounded-full bg-[#541F03] text-white">
+                  <button
+                    onClick={() => {
+                      increaseQuantity(item.name);
+                    }}
+                    className="w-8 h-8 rounded-full bg-[#541F03] text-white"
+                  >
                     +
                   </button>
                 </div>
@@ -84,9 +101,17 @@ const Cart = () => {
             <span>${totalCost + DeliveryCharge}</span>
           </div>
 
-          <button className="w-full mt-6 bg-[#541F03] text-white py-3 rounded-full hover:bg-[#3f1602] duration-300">
-            Proceed to Checkout
-          </button>
+          {cartItems.length > 0 ? (
+            <Link to="/shipping">
+              <button className="w-full mt-6 bg-[#541F03] text-white py-3 rounded-full hover:bg-[#3f1602] duration-300">
+                Proceed to Checkout
+              </button>
+            </Link>
+          ) : (
+            <p className="text-center text-red-500 mt-6">
+              Please select at least one item
+            </p>
+          )}
         </div>
       </div>
     </div>
