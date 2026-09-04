@@ -1,5 +1,4 @@
 const express = require("express");
-const product = require("./product.json");
 const { default: mongoose, connect } = require("mongoose");
 const { connectMongoDb } = require("./Views/connection");
 const Flavors = require("./Model/IceCreamFlavors");
