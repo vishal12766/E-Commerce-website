@@ -21,7 +21,7 @@ connectMongoDb(
     console.log(err);
   });
 
-app.use(cors({ origin: "https://e-commerce-website-mvlfdzn20-vishal-singhs-projects-37c1247a.vercel.app/", credentials: true }));
+app.use(cors({ origin: "https://e-commerce-website-2ltgw4vq1-vishal-singhs-projects-37c1247a.vercel.app/", credentials: true }));
 app.use(express.json());
 
 app.use(cookieparser());
