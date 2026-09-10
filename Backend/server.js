@@ -12,7 +12,7 @@ require("dotenv").config();
 const app = express();
 
 connectMongoDb(
-  process.env.MONGO_URL || "mongodb://localhost:27017/IceCreamdata",
+  process.env.MONGO_URL
 )
   .then(() => {
     console.log("Connected to:", mongoose.connection.name);
@@ -22,7 +22,7 @@ connectMongoDb(
   });
 
 app.use(cors({
-  origin: true,
+  origin: process.env.FRONTEND_URL,
   credentials: true
 }));
 app.use(express.json());
