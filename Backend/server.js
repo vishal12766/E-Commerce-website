@@ -27,19 +27,24 @@ app.use(express.json());
 app.use(cookieparser());
 
 app.get("/api/product", async (req, res) => {
-  const flavor = await Flavors.find();
+  try {
+    const flavor = await Flavors.find();
 
-  console.log(flavor);
+    console.log("Products:", flavor);
 
-  if (!flavor) {
-    return res.json({ message: "No document found" });
+    if (!flavor || flavor.length === 0) {
+      return res.json({ message: "No document found" });
+    }
+
+    res.json(flavor);
+  } catch (err) {
+    console.error("PRODUCT ERROR:", err);
+
+    res.status(500).json({
+      message: "Failed to fetch products",
+      error: err.message,
+    });
   }
-
-  res.json(flavor);
-});
-
-app.get("/", (req, res) => {
-  return res.send("hello");
 });
 
 app.post("/signup", async (req, res) => {
@@ -51,7 +56,11 @@ app.post("/signup", async (req, res) => {
       password,
     });
     const token = setUser(user);
-    res.cookie("uid", token);
+    res.cookie("uid", token, {
+  httpOnly: true,
+  sameSite: "none",
+  secure: true,
+});
     console.log(token);
     res.json({
       msg: "Signup successful",
@@ -153,10 +162,10 @@ app.get("/me", async (req, res) => {
 
 app.post("/logout", (req, res) => {
   res.clearCookie("uid", {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: false,
-  });
+  httpOnly: true,
+  sameSite: "none",
+  secure: true,
+});
 
   res.json({
     message: "Logged out successfully",
