@@ -73,20 +73,29 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  const user = await User.findOne({ email });
-  if (user) {
+  try {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.json({
+        msg: "User not found",
+      });
+    }
+
     if (user.password !== password) {
       return res.json({
         msg: "Wrong password",
       });
     }
+
     const token = setUser(user);
 
     res.cookie("uid", token, {
       httpOnly: true,
-      sameSite: "lax",
-      secure: false,
+      sameSite: "none",
+      secure: true,
     });
 
     res.json({
@@ -97,9 +106,12 @@ app.post("/login", async (req, res) => {
         name: user.name,
       },
     });
-  } else {
-    return res.json({
-      msg: "User not found",
+
+  } catch (err) {
+    console.error("LOGIN ERROR:", err);
+
+    res.status(500).json({
+      msg: "Server error",
     });
   }
 });
