@@ -16,9 +16,6 @@ const Cart = () => {
     decreaseQuantity,
   } = useContext(CartContext);
 
-  useEffect(() => {
-    console.log("Cart:", cartItems);
-  }, [cartItems]);
 
   return (
     <div className="min-h-screen bg-[#FFF8F3] py-10 px-6">
@@ -33,7 +30,7 @@ const Cart = () => {
         <div className="flex-1 bg-white rounded-3xl shadow-lg p-6">
           {cartItems.length > 0 ? (
             cartItems.map((item, idx) => (
-              <div className="flex items-center justify-between border-b pb-4">
+              <div key={idx} className="flex items-center justify-between border-b pb-4">
                 <div className="flex items-center gap-5">
                   <img
                     src={item.img}

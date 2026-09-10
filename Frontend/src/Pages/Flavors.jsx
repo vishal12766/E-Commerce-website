@@ -12,11 +12,11 @@ const Flavors = () => {
 
   useEffect(() => {
       if(Products.length>0){
-        seticeCreamFlavors(Products[0]["Ice Cream Flavors"])
-        setdairyFreeFlavors(Products[1]["Dairy Free Flavors"])  
+        seticeCreamFlavors(Products[1]["Ice Cream Flavors"])
+        setdairyFreeFlavors(Products[0]["Dairy Free Flavors"])  
         settype([
-          Object.keys(Products[0])[1],
-          Object.keys(Products[1])[1]
+          Object.keys(Products[1])[1],
+          Object.keys(Products[0])[1]
         ]);  
       }
          

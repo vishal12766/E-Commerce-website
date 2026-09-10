@@ -10,10 +10,14 @@ const Order = () => {
   const { Products } = useContext(ProductContext);
   const { cartItems, addToCart, totalCost, Quantity } = useContext(CartContext);
 
-  const icecream = Products.length > 0 ? Products[0]["Ice Cream Flavors"] : [];
+  const iceCreamData = Products.find((item) => item["Ice Cream Flavors"]);
 
-  const dairyfree =
-    Products.length > 1 ? Products[1]["Dairy Free Flavors"] : [];
+  const dairyFreeData = Products.find((item) => item["Dairy Free Flavors"]);
+
+  const icecream = iceCreamData?.["Ice Cream Flavors"] || [];
+
+  const dairyfree = dairyFreeData?.["Dairy Free Flavors"] || [];
+
   const flavor = [...icecream, ...dairyfree];
 
   const [addeditem, setaddeditem] = useState([]);
@@ -42,9 +46,6 @@ const Order = () => {
     }, 2000);
   };
 
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
 
   const Card = ({ item }) => {
     return (
