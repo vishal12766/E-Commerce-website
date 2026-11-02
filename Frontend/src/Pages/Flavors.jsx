@@ -11,16 +11,15 @@ const Flavors = () => {
   const [dairyFreeFlavors, setdairyFreeFlavors] = useState([])
 
   useEffect(() => {
-      if(Products.length>0){
-        seticeCreamFlavors(Products[0]["Ice Cream Flavors"])
-        setdairyFreeFlavors(Products[1]["Dairy Free Flavors"])  
-        settype([
-          Object.keys(Products[1])[1],
-          Object.keys(Products[0])[1]
-        ]);  
-      }
-         
-  }, [Products]);
+  if (Array.isArray(Products) && Products.length > 0) {
+    const iceCream = Products.find((p) => p["Ice Cream Flavors"]);
+    const dairyFree = Products.find((p) => p["Dairy Free Flavors"]);
+
+    seticeCreamFlavors(iceCream?.["Ice Cream Flavors"] || []);
+    setdairyFreeFlavors(dairyFree?.["Dairy Free Flavors"] || []);
+    settype(["Dairy Free Flavors", "Ice Cream Flavors"]);
+  }
+}, [Products]);
   return (
     <div className="min-h-screen bg-[#fffdf3]">
       <div className="bg-[#541F03] h-64 md:h-80 flex justify-center items-center">
